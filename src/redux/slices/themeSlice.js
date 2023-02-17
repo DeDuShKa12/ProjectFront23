@@ -14,7 +14,7 @@ const themeSlice = createSlice({
     },
 });
 
-// Action creators are generated for each case reducer function
+
 const {reducer: themeReducer, actions: {toggleTheme}} = themeSlice;
 
 const themeActions = {

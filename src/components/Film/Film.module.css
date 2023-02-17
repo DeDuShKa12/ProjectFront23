@@ -1,0 +1,22 @@
+.filmBox {
+    width: 18%;
+    height: 23%;
+    border: 2px solid black;
+}
+.titleBox {
+    display: flex;
+    height: 6%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /*border: 2px solid black;*/
+    font-size: 19px;
+}
+.imgBox {
+    width: 100%;
+    height: 94%;
+}
+img {
+    max-width: 100%;
+    height: 99%;
+}
