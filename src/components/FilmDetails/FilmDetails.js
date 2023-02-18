@@ -14,6 +14,8 @@ const FilmDetails = () => {
 
     const {filmDetails} = useSelector(state => state.film);
 
+    const {darkMode} = useSelector(state => state.theme);
+
 
 
     useEffect(()=>{
@@ -23,7 +25,7 @@ const FilmDetails = () => {
     }, [dispatch, id])
 
     return (
-        <div className={css.main}>
+        <div className={darkMode ? css.lightMainBox:css.darkMainBox}>
             {filmDetails &&
                 <div className={css.mainBox}>
                     <img className={css.imgBox} src={`https://image.tmdb.org/t/p/w500${filmDetails.poster_path}`} alt={filmDetails.original_title}/>

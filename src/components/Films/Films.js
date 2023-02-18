@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {filmActions} from "../../redux/slices/filmSlice";
 import {useSearchParams} from "react-router-dom";
 import {Film} from "../Film/Film";
-
 import css from './Films.module.css'
 
 const Films = () => {
@@ -11,6 +10,8 @@ const Films = () => {
     const dispatch = useDispatch();
 
     const {films} = useSelector(state => state.film);
+
+    const {darkMode} = useSelector(state => state.theme);
 
 
     const [query, setQuery] = useSearchParams({page:'1'});
@@ -21,7 +22,7 @@ const Films = () => {
 
 
     return (
-        <div className={css.mainBox}>
+        <div className={darkMode?  css.lightMainBox : css.darkMainBox}>
             <div className={css.filmsBox}>
                 <div className={css.films}>
 
@@ -35,7 +36,7 @@ const Films = () => {
         </div>
 
     );
-};
+}
 
 
 export {Films};

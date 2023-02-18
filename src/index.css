@@ -3,3 +3,12 @@ body {
     padding: 0;
     margin: 0;
 }
+.dark {
+    background: #090808;
+    color: wheat;
+}
+
+.light {
+    background: #1664b5;
+    color: wheat;
+}
