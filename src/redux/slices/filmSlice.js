@@ -3,6 +3,7 @@ import {filmsService} from "../../services";
 
 const initialState = {
     films:[],
+    filmDetails: null,
     errors: null,
     loading: null,
 };
@@ -18,6 +19,18 @@ const getAll = createAsyncThunk(
             return thunkAPI.rejectWithValue(e.response.data)
         }
 
+    }
+);
+
+const getById = createAsyncThunk(
+    'filmSlice/getById',
+    async ({id},thunkAPI)=>{
+        try {
+            const {data} = await filmsService.getByID(id);
+            return data
+        }catch (e) {
+            return thunkAPI.rejectWithValue(e.response.data)
+        }
     }
 );
 
@@ -38,13 +51,17 @@ const filmSlice = createSlice({
                 state.loading = false
                 state.errors = action.payload
             })
+            .addCase(getById.fulfilled, (state, action)=>{
+                state.filmDetails = action.payload
+            })
 });
 
 const {reducer: filmReducer} = filmSlice
 
 
 const filmActions = {
-    getAll
+    getAll,
+    getById
 }
 
 export {

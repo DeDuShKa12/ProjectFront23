@@ -12,7 +12,6 @@ const Films = () => {
 
     const {films} = useSelector(state => state.film);
 
-    console.log(films);
 
     const [query, setQuery] = useSearchParams({page:'1'});
 

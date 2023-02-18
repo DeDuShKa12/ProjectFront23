@@ -6,17 +6,21 @@ import {useDispatch, useSelector} from "react-redux";
 import {themeActions} from "../../redux/slices/themeSlice";
 
 const Header = () => {
-    let navigate = useNavigate();
-    let dispatch = useDispatch();
+
+    const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     const {darkMode} = useSelector(state => state.theme)
+
+    const mod = darkMode ? css.buttonLight : css.buttonDark
 
     return (
         <div className={darkMode ? css.light : css.dark}>
             <div className={css.box}>
-                <button className={darkMode ? css.buttonLight : css.buttonDark} onClick={()=> navigate('home')}>Home</button>
-                <button className={darkMode ? css.buttonLight : css.buttonDark} onClick={()=> navigate('films')}>Films</button>
-                <button className={darkMode ? css.buttonLight : css.buttonDark} onClick={()=> navigate('serials')}>Серіали</button>
+                <button className={mod} onClick={()=> navigate('home')}>Home</button>
+                <button className={mod} onClick={()=> navigate('films')}>Films</button>
+                <button className={mod} onClick={()=> navigate('serials')}>Серіали</button>
             </div>
             <Search/>
             <button className={darkMode ? css.buttonThemeLight : css.buttonThemeDark} onClick={()=>dispatch(themeActions.toggleTheme())}>{darkMode ? "Dark" : "Light"} Theme</button>

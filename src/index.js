@@ -4,19 +4,22 @@ import './index.css';
 import {App} from './App';
 import {Provider} from "react-redux";
 import {BrowserRouter} from "react-router-dom";
-import {setupStore} from "./redux/store";
+import {setupStore} from "./redux";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const store = setupStore();
 
+
+
 root.render(
 
     <Provider store={store}>
-        <BrowserRouter>
-            <App/>
-        </BrowserRouter>
+            <BrowserRouter>
+
+                <App/>
+            </BrowserRouter>
     </Provider>
 
 );

@@ -7,6 +7,7 @@ const movies = '/discover/movie'
 const urls = {
     movies:{
         movies,
+        byId: (id) => `/movie/${id}`
     }
 }
 
