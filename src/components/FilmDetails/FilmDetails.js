@@ -28,10 +28,10 @@ const FilmDetails = () => {
         <div className={darkMode ? css.lightMainBox:css.darkMainBox}>
             {filmDetails &&
                 <div className={css.mainBox}>
-                    <img className={css.imgBox} src={`https://image.tmdb.org/t/p/w500${filmDetails.poster_path}`} alt={filmDetails.original_title}/>
+                    <img className={css.imgBox} src={`https://image.tmdb.org/t/p/w500${filmDetails.poster_path}`} alt={filmDetails.title}/>
 
                     <div className={css.infoBox}>
-                        <h2>{filmDetails.original_title}</h2>
+                        <h2>{filmDetails.title}</h2>
                         <div className={css.genresDiv}>
                             <b>Жанри:</b> {filmDetails.genres.map(genre => <GenreInDetails key={genre.id} genre={genre}/> )}.
                         </div>
