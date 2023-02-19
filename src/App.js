@@ -2,6 +2,7 @@ import React from 'react';
 import {Navigate, Route, Routes} from "react-router-dom";
 import {MainLayout} from "./layouts";
 import {FilmDetailsPage, FilmsPage, MainPage, SerialsPage} from "./pages";
+import {SearchPage} from "./pages/SearchPage/SearchPage";
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
                   <Route path={'films'} element={<FilmsPage/>}/>
                   <Route path={'films/:id'} element={<FilmDetailsPage/>}/>
                   <Route path={'serials'} element={<SerialsPage/>}/>
+                  <Route path={'search'} element={<SearchPage/>}/>
               </Route>
           </Routes>
   );

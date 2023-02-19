@@ -16,6 +16,8 @@ const Films = () => {
 
     const [query, setQuery] = useSearchParams({page:'1'});
 
+    console.log(query);
+
     useEffect(()=>{
         dispatch(filmActions.getAll({page:query.get('page')}))
     },[dispatch, query])

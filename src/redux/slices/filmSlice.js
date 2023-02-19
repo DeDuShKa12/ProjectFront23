@@ -3,7 +3,8 @@ import {filmsService} from "../../services";
 
 const initialState = {
     films:[],
-    filmDetails: null,
+    searchFilms: [],
+    selectedQuery: null,
     errors: null,
     loading: null,
 };
@@ -34,10 +35,29 @@ const getById = createAsyncThunk(
     }
 );
 
+const search = createAsyncThunk(
+    'filmSlice/search',
+    async ({query, page}, thunkAPI)=>{
+        try {
+            const {data} = await filmsService.searchByQuery(query.name, page);
+
+
+            return data.results
+        }catch (e) {
+            return thunkAPI.rejectWithValue(e.response.data)
+        }
+    }
+
+);
+
 const filmSlice = createSlice({
     name: 'filmSlice',
     initialState,
-    reducers:{},
+    reducers:{
+        setSelectedQuery: (state, action) => {
+            state.selectedQuery = action.payload
+        }
+    },
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action)=>{
@@ -54,14 +74,19 @@ const filmSlice = createSlice({
             .addCase(getById.fulfilled, (state, action)=>{
                 state.filmDetails = action.payload
             })
+            .addCase(search.fulfilled, (state, action)=>{
+                state.searchFilms = action.payload
+            })
 });
 
-const {reducer: filmReducer} = filmSlice
+const {reducer: filmReducer, actions: {setSelectedQuery}} = filmSlice
 
 
 const filmActions = {
     getAll,
-    getById
+    getById,
+    search,
+    setSelectedQuery
 }
 
 export {
