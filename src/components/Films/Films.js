@@ -4,6 +4,7 @@ import {filmActions} from "../../redux/slices/filmSlice";
 import {useSearchParams} from "react-router-dom";
 import {Film} from "../Film/Film";
 import css from './Films.module.css'
+import {Sidebar} from "../SideBar/Sidebar";
 
 const Films = () => {
 
@@ -24,15 +25,18 @@ const Films = () => {
 
 
     return (
-        <div className={darkMode?  css.lightMainBox : css.darkMainBox}>
-            <div className={css.filmsBox}>
-                <div className={css.films}>
+        <div>
+            <Sidebar/>
+            <div className={darkMode?  css.lightMainBox : css.darkMainBox}>
+                <div className={css.filmsBox}>
+                    <div className={css.films}>
 
-                    {films.map(film=> <Film key={film.id} film={film}/>)}
-                </div>
-                <div className={css.pageDiv}>
-                    <button onClick={()=>setQuery(query=>({page:+query.get('page')-1}))}>prev</button>
-                    <button onClick={()=>setQuery(query=>({page:+query.get('page')+1}))}>next</button>
+                        {films.map(film=> <Film key={film.id} film={film}/>)}
+                    </div>
+                    <div className={css.pageDiv}>
+                        <button onClick={()=>setQuery(query=>({page:+query.get('page')-1}))}>prev</button>
+                        <button onClick={()=>setQuery(query=>({page:+query.get('page')+1}))}>next</button>
+                    </div>
                 </div>
             </div>
         </div>

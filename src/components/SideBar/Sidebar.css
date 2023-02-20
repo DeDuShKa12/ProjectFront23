@@ -1,0 +1,57 @@
+.sidebar-content {
+    position: fixed;
+    top: 70px;
+    left: -300px;
+    bottom: 0;
+    width: 300px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar-content.open {
+    left: 0;
+}
+
+.sidebar-trigger {
+    position: fixed;
+    top: 70px;
+    /*left: 20px;*/
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    /*z-index: 999;*/
+}
+
+/*.sidebar-trigger.open .bar {*/
+/*    background-color: #fff;*/
+/*}*/
+
+/*.sidebar-trigger .bar {*/
+/*    width: 100%;*/
+/*    height: 4px;*/
+/*    margin: 6px auto;*/
+/*    border-radius: 4px;*/
+/*    transition: all 0.3s ease-in-out;*/
+/*    background-color: #333;*/
+/*}*/
+
+.sidebar-trigger .bar:first-child {
+    transform: translateY(-10px);
+}
+
+.sidebar-trigger .bar:last-child {
+    transform: translateY(10px);
+}
+
+.buttonClose {
+    height: 40px;
+    width: 300px;
+    transition-duration: 0.4s;
+}
+
+.buttonClose:hover {
+    background-color: #464646;
+    color: white;
+}

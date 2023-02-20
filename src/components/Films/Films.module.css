@@ -17,6 +17,7 @@
 }
 
 .filmsBox {
+    margin-top: 250px;
     width: 70%;
     height: 95%;
     display: flex;
