@@ -1,4 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+
 import {filmsService} from "../../services";
 
 
@@ -6,18 +7,18 @@ const initialState = {
     films:[],
     searchFilms: [],
     selectedQuery: null,
-    selectedGenre: null,
     errors: null,
     loading: null,
+    totalPages: 1,
 };
 
 
 const getAll = createAsyncThunk(
     "filmSlice/getAll",
-    async ({ page, genre }, thunkAPI) => {
+    async ({ page}, thunkAPI) => {
         try {
-            const { data } = await filmsService.getAll({ page, with_genres: genre });
-            return data.results;
+            const { data } = await filmsService.getAll(page);
+            return data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data);
         }
@@ -48,7 +49,7 @@ const search = createAsyncThunk(
             };
             const { data } = await filmsService.searchByQuery(config);
 
-            return data.results;
+            return data
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data);
         }
@@ -64,19 +65,14 @@ const filmSlice = createSlice({
     reducers:{
         setSelectedQuery: (state, action) => {
             state.selectedQuery = action.payload
-        },
-        setSelectedGenre: (state, action)=>{
-            state.selectedGenre = action.payload
-        },
-        delSelectedGenre: (state, action)=>{
-            state.selectedGenre = null
         }
     },
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action)=>{
-                state.films = action.payload
+                state.films = action.payload.results
                 state.loading = false
+                state.totalPages = action.payload.total_pages
             })
             .addCase(getAll.pending, (state, action)=>{
                 state.loading = true
@@ -89,11 +85,15 @@ const filmSlice = createSlice({
                 state.filmDetails = action.payload
             })
             .addCase(search.fulfilled, (state, action)=>{
-                state.searchFilms = action.payload
+                state.searchFilms = action.payload.results
+                state.totalPages = action.payload.total_pages
+            })
+            .addCase(search.rejected, (state, action)=>{
+                state.errors = action.payload
             })
 });
 
-const {reducer: filmReducer, actions: {setSelectedQuery, setSelectedGenre, delSelectedGenre}} = filmSlice
+const {reducer: filmReducer, actions: {setSelectedQuery}} = filmSlice
 
 
 const filmActions = {
@@ -101,8 +101,6 @@ const filmActions = {
     getById,
     search,
     setSelectedQuery,
-    setSelectedGenre,
-    delSelectedGenre
 }
 
 export {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FilmDetails} from "../../components/FilmDetails/FilmDetails";
+import {FilmDetails} from "../../components";
 
 const FilmDetailsPage = () => {
     return (

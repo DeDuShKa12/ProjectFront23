@@ -1,11 +1,14 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+
 import {genreService} from "../../services/genreService";
+
 
 const initialState = {
     genres:[],
-    selectedQuery: null,
+    movieByGenres: [],
     errors: null,
     loading: null,
+    totalPages: 1,
 };
 
 const getAll = createAsyncThunk(
@@ -23,14 +26,25 @@ const getAll = createAsyncThunk(
 );
 
 
+const getMoviesByGenre = createAsyncThunk(
+    "genresSlice/getMoviesByGenre",
+    async ({id, page}, thunkAPI) => {
+        try {
+            const { data } = await genreService.getByGenreId(id, page );
+            return data;
+
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e.response.data);
+        }
+    }
+);
+
+
 
 const genresSlice = createSlice({
     name: 'genreSlice',
     initialState,
     reducers:{
-        setSelectedQuery: (state, action) => {
-            state.selectedQuery = action.payload
-        }
     },
     extraReducers: builder =>
         builder
@@ -45,6 +59,10 @@ const genresSlice = createSlice({
                 state.loading = false
                 state.errors = action.payload
             })
+            .addCase(getMoviesByGenre.fulfilled, (state, action)=>{
+                state.movieByGenres = action.payload.results
+                state.totalPages = action.payload.total_pages
+            })
 
 });
 
@@ -53,6 +71,7 @@ const {reducer: genreReducer} = genresSlice
 
 const genresActions = {
     getAll,
+    getMoviesByGenre
 
 }
 

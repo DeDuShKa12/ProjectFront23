@@ -1,7 +1,8 @@
 import React from 'react';
-import css from './Film.module.css'
 import {Rating} from "@mui/material";
 import {useNavigate} from "react-router-dom";
+
+import css from './Film.module.css'
 
 
 

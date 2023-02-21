@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {filmActions} from "../../redux/slices/filmSlice";
+import {Rating} from "@mui/material";
 import {useParams} from "react-router-dom";
+
+import {filmActions} from "../../redux/slices/filmSlice";
 import css from './FilmDetails.module.css'
 import {GenreInDetails} from "../GenreInDetails/GenreInDetails";
-import {Rating} from "@mui/material";
 
 const FilmDetails = () => {
 

@@ -1,16 +1,17 @@
 import React from 'react';
+import {useNavigate} from "react-router-dom";
+
 import css from './Genre.module.css'
-import {useDispatch} from "react-redux";
-import {filmActions} from "../../redux/slices/filmSlice";
 
 const Genre = ({genre}) => {
     const {id, name} = genre
 
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
 
 
     const searchMovie = async () => {
-        dispatch(filmActions.setSelectedGenre(id))
+        navigate(`/genre/${id}`)
     };
 
     return (

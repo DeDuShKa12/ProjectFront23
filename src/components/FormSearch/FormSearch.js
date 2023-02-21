@@ -2,9 +2,10 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
+import {BiSearchAlt} from "react-icons/bi";
+
 import {filmActions} from "../../redux/slices/filmSlice";
 import css from './FormSearch.module.css'
-import {BiSearchAlt} from "react-icons/bi";
 
 
 const FormSearch = () => {
