@@ -1,25 +1,26 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {filmsService} from "../../services";
 
+
 const initialState = {
     films:[],
     searchFilms: [],
     selectedQuery: null,
+    selectedGenre: null,
     errors: null,
     loading: null,
 };
 
+
 const getAll = createAsyncThunk(
-    'filmSlice/getAll',
-    async ({page}, thunkAPI) =>{
+    "filmSlice/getAll",
+    async ({ page, genre }, thunkAPI) => {
         try {
-            const {data} = await filmsService.getAll({page});
-            return data.results
-
-        }catch (e) {
-            return thunkAPI.rejectWithValue(e.response.data)
+            const { data } = await filmsService.getAll({ page, with_genres: genre });
+            return data.results;
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e.response.data);
         }
-
     }
 );
 
@@ -35,20 +36,27 @@ const getById = createAsyncThunk(
     }
 );
 
+
+
 const search = createAsyncThunk(
     'filmSlice/search',
-    async ({query, page}, thunkAPI)=>{
+    async (params, thunkAPI) => {
         try {
-            const {data} = await filmsService.searchByQuery(query.name, page);
+            const config = {
+                    query: params.query.name,
+                    page: params.page
+            };
+            const { data } = await filmsService.searchByQuery(config);
 
-
-            return data.results
-        }catch (e) {
-            return thunkAPI.rejectWithValue(e.response.data)
+            return data.results;
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e.response.data);
         }
     }
-
 );
+
+
+
 
 const filmSlice = createSlice({
     name: 'filmSlice',
@@ -56,6 +64,12 @@ const filmSlice = createSlice({
     reducers:{
         setSelectedQuery: (state, action) => {
             state.selectedQuery = action.payload
+        },
+        setSelectedGenre: (state, action)=>{
+            state.selectedGenre = action.payload
+        },
+        delSelectedGenre: (state, action)=>{
+            state.selectedGenre = null
         }
     },
     extraReducers: builder =>
@@ -79,14 +93,16 @@ const filmSlice = createSlice({
             })
 });
 
-const {reducer: filmReducer, actions: {setSelectedQuery}} = filmSlice
+const {reducer: filmReducer, actions: {setSelectedQuery, setSelectedGenre, delSelectedGenre}} = filmSlice
 
 
 const filmActions = {
     getAll,
     getById,
     search,
-    setSelectedQuery
+    setSelectedQuery,
+    setSelectedGenre,
+    delSelectedGenre
 }
 
 export {

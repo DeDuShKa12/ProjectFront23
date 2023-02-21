@@ -1,17 +1,11 @@
-.box {
-    width: 20%;
-}
-
 .buttonClose {
     height: 4%;
     width: 100%;
     transition-duration: 0.4s;
-    font-size: 17px;
-    border-radius: 15px;
+    font-size: 20px;
 }
 
 .buttonClose:hover {
     background-color: #464646;
     color: white;
-    border-radius: 15px;
 }

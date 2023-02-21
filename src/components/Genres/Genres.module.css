@@ -1,0 +1,16 @@
+.genreBox {
+    width: 85%;
+    height: 95%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.mainDiv {
+    width: 98%;
+    height: 850px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

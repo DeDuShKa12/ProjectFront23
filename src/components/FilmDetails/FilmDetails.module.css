@@ -23,15 +23,16 @@
 .mainBox {
     display: flex;
     justify-content: space-between;
-    width: 65%;
-    height: 120vh;
+    margin-top: 100px;
+    width: 60%;
+    height: 80vh;
     background-color: rgba(3, 2, 35, 0.8);
     box-sizing: border-box;
     padding: 20px;
 }
 .imgBox {
     width: 40%;
-    height: 60%;
+    height: 80%;
 }
 .infoBox {
     box-sizing: border-box;

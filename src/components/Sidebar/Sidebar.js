@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
+import {Genres} from "../Genres/Genres";
 
 const Sidebar = ({children}) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -47,10 +48,18 @@ const SidebarTrigger = ({isOpen, onClick}) => {
 
 const CloseButton = ({onClick}) => {
     const buttonClose = 'buttonClose';
+
+    const genreBox = 'genreBox'
     return (
-        <button className={buttonClose} onClick={onClick}>
-            Close
-        </button>
+        <div>
+            <button className={buttonClose} onClick={onClick}>
+                Закрити
+            </button>
+            <div className={genreBox}>
+                <Genres/>
+            </div>
+        </div>
+
     );
 }
 

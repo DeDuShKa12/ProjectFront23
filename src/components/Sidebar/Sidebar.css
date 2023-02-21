@@ -18,7 +18,7 @@
     position: fixed;
     top: 70px;
     /*left: 20px;*/
-    width: 40px;
+    width: 15%;
     height: 40px;
     cursor: pointer;
     /*z-index: 999;*/
@@ -47,7 +47,7 @@
 
 .buttonClose {
     height: 40px;
-    width: 300px;
+    width: 100%;
     transition-duration: 0.4s;
 }
 
@@ -55,3 +55,12 @@
     background-color: #464646;
     color: white;
 }
+/*.genreBox {*/
+/*    width: 98%;*/
+/*    height: 840px;*/
+/*    border: 2px solid black;*/
+/*    display: flex;*/
+/*    justify-content: space-evenly;*/
+/*    align-items: center;*/
+/*    flex-direction: column;*/
+/*}*/

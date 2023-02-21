@@ -7,4 +7,7 @@ export * from './GenreInDetails/GenreInDetails'
 export * from './FormSearch/FormSearch'
 export * from './FilmDetails/FilmDetails'
 export * from './QueryFilms/QueryFilms'
+export * from './Sidebar/Sidebar'
+export * from './Genres/Genres'
+export * from './Genre/Genre'
 

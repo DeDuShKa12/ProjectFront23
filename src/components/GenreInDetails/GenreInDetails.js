@@ -1,12 +1,26 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import css from './GenreInDetails.module.css'
+import {useDispatch} from "react-redux";
+import {filmActions} from "../../redux/slices/filmSlice";
+
 
 const GenreInDetails = ({genre}) => {
     const {id, name} = genre
+
+    const dispatch = useDispatch();
+
+    const navigate = useNavigate();
+
+
+    const goToGenre = () => {
+        dispatch(filmActions.setSelectedGenre(id))
+        navigate('/films')
+    };
+
     return (
         <div className={css.box}>
-            <NavLink to={`/search`} state={id.toString()}>{ name }</NavLink>
+                <button className={css.buttonClose} onClick={() => goToGenre()}>{ name }</button>
         </div>
     );
 };

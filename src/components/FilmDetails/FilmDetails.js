@@ -45,13 +45,13 @@ const FilmDetails = () => {
                             <b>Рейтинг: </b> <Rating name="read-only" value={filmDetails.vote_average} max={10} precision={0.5} readOnly />
                         </div>
                         <div>
-                            <b>Країна виробник: </b>{filmDetails.production_countries.map(countrie => <div>{countrie.name}</div>)}
+                            <b>Країна виробник: </b>{filmDetails.production_countries.map((countrie, index) => <div key={index}>{countrie.name}</div>)}
                         </div>
                         <div className={css.otherDiv}>
                             <b>Статус: </b> {filmDetails.status}
                         </div>
                         <div>
-                            <b>Компанія виробник: </b> {filmDetails.production_companies.map(prodc=><div>{prodc.name}</div>)}
+                            <b>Компанія виробник: </b> {filmDetails.production_companies.map(prodc=><div key={prodc.id}>{prodc.name}</div>)}
                         </div>
                         <h4>{filmDetails.overview}</h4>
                     </div>
