@@ -56,7 +56,7 @@ const CloseButton = ({onClick}) => {
                 Закрити
             </button>
             <div className={genreBox}>
-                <Genres/>
+                <Genres />
             </div>
         </div>
 

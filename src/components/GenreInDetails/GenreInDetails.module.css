@@ -8,10 +8,12 @@
     transition-duration: 0.4s;
     font-size: 17px;
     border-radius: 15px;
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
 }
 
 .buttonClose:hover {
-    background-color: #464646;
-    color: white;
+    background-color: var(--background-third);
+    color: var(--text-secondary);
     border-radius: 15px;
 }

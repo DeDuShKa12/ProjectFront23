@@ -11,7 +11,6 @@ const FilmGenres = () => {
     const dispatch = useDispatch();
 
     const { movieByGenres, totalPages } = useSelector((state) => state.genre);
-    const { darkMode } = useSelector((state) => state.theme);
 
     const [searchParams, setSearchParams] = useSearchParams({ page: '1' });
     const { id } = useParams();
@@ -35,7 +34,7 @@ const FilmGenres = () => {
 
     return (
         <div>
-            <div className={darkMode ? css.lightMainBox : css.darkMainBox}>
+            <div className={css.mainDiv}>
                 <div className={css.filmsBox}>
                     <div className={css.films}>
                         {movieByGenres.map((movie) => (

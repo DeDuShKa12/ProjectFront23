@@ -2,12 +2,12 @@ import React from 'react';
 import {Header, Sidebar} from "../components";
 import {Outlet} from "react-router-dom";
 
-const MainLayout = () => {
+const MainLayout = ({switchTheme, theme}) => {
     return (
         <div>
-            <Header/>
-            <Sidebar/>
-            <Outlet/>
+            <Header switchTheme={switchTheme} theme={theme}/>
+            <Sidebar theme={theme}/>
+            <Outlet theme={theme}/>
         </div>
     );
 };

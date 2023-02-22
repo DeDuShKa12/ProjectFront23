@@ -1,7 +1,7 @@
-.dark {
+.mainBox {
     box-sizing: border-box;
-    background: #0c0c0c;
-    color: white;
+    background-color: var(--background);
+    color: var(--text-primary);
     width: 100%;
     height: 70px;
     display: flex;
@@ -13,75 +13,35 @@
     z-index: 10;
 }
 
-.light {
-    box-sizing: border-box;
-    background: #234771;
-    color: black;
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px 0 50px;
-    border: 2px solid #171717;
-    position: fixed;
-    z-index: 10;
-}
 
-.buttonLight {
+.buttonNav {
     width: 20%;
     height: 40px;
-    background: #234771;
-    font-size: 20px;
-    color: wheat;
-    border: none;
-    border-radius: 20px;
-}
-
-.buttonLight:hover {
-    background-color: #10679b;
-    color: #000000;
-}
-
-.buttonDark {
-    width: 20%;
-    height: 40px;
-    background: #000000;
-    color: white;
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
     border-radius: 20px;
     font-size: 20px;
 }
 
-.buttonDark:hover {
-    background-color: #464444;
-    color: #f8f8f8;
+.buttonNav:hover {
+    background-color: var(--background-third);
+    color: var(--text-secondary);
+    cursor: pointer;
 }
 
-.buttonThemeLight {
+
+.buttonThemeSwitch {
     width: 3%;
     height: 40px;
-    background: #234771;
-    color: wheat;
-    border: none;
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
     border-radius: 20px;
 }
 
-.buttonThemeLight:hover {
-    background-color: #10679b;
-    color: #000000;
-}
-
-.buttonThemeDark {
-    width: 3%;
-    height: 40px;
-    background: #000000;
-    color: white;
-    border-radius: 20px;
-}
-
-.buttonThemeDark:hover {
-    background-color: #464444;
-    color: #f8f8f8;
+.buttonThemeSwitch:hover {
+    background-color: var(--background-third);
+    color: var(--text-secondary);
+    cursor: pointer;
 }
 
 .box {
@@ -99,6 +59,8 @@
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background: #949494;
+    background-color: var(--accent);
+    color: black;
     font-size: 25px;
+    cursor: pointer;
 }

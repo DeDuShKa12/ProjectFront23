@@ -1,5 +1,5 @@
 import {apiService} from "./apiService";
-import {urls} from "../configs/urls";
+import {urls} from "../configs";
 
 const filmsService = {
     getByID: (id) => apiService.get(urls.movies.byId(id)),

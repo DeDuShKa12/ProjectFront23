@@ -7,20 +7,18 @@ import {BrowserRouter} from "react-router-dom";
 import {setupStore} from "./redux";
 
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const store = setupStore();
 
 
-
 root.render(
+            <Provider store={store}>
+                <BrowserRouter>
 
-    <Provider store={store}>
-            <BrowserRouter>
-
-                <App/>
-            </BrowserRouter>
-    </Provider>
-
+                    <App/>
+                </BrowserRouter>
+            </Provider>
 );
 

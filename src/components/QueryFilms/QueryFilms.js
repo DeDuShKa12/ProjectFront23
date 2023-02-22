@@ -12,8 +12,8 @@ const QueryFilms = () => {
     const { searchFilms, selectedQuery, totalPages } = useSelector(
         (state) => state.film
     );
+
     const [pageQuery, setPageQuery] = useSearchParams({ page: '1' });
-    const { darkMode } = useSelector((state) => state.theme);
 
     useEffect(() => {
         dispatch(
@@ -21,7 +21,13 @@ const QueryFilms = () => {
                 query: selectedQuery,
                 page: pageQuery.get('page'),
             })
-        );
+
+        )
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        });
     }, [dispatch, pageQuery, selectedQuery]);
 
     const handleChange = (event, value) => {
@@ -29,7 +35,7 @@ const QueryFilms = () => {
     };
 
     return (
-        <Box className={darkMode ? css.lightMainBox : css.darkMainBox}>
+        <Box className={css.mainBox}>
             <Box className={css.filmsBox}>
                 <Box className={css.films}>
                     {searchFilms.map((film) => (

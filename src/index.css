@@ -3,12 +3,25 @@ body {
     padding: 0;
     margin: 0;
 }
-.dark {
-    background: #090808;
-    color: wheat;
+:root {
+    --background: #5c8eca;
+    --background-secondary: #b2c8e1;
+    --background-third: #234f74;
+    --background-fourth: rgba(143, 140, 185, 0.6);
+    --text-primary: black;
+    --text-secondary: #fafafa;
+    --text-third: #020007;
+    --accent: #e5e5e5;
+    --background-image: url("https://png.pngtree.com/background/20210710/original/pngtree-baking-event-promotion-poster-background-material-picture-image_1050468.jpg");
 }
-
-.light {
-    background: #1664b5;
-    color: wheat;
+[data-theme="dark"] {
+    --background: black;
+    --background-secondary: #353535;
+    --background-third: #c7c5c5;
+    --background-fourth: rgba(3, 2, 35, 0.8);
+    --text-primary: #e5ca83;
+    --text-secondary: #121212;
+    --text-third: #efefef;
+    --accent: #5a7ca2;
+    --background-image: url("https://images.pexels.com/photos/2603464/pexels-photo-2603464.jpeg");
 }

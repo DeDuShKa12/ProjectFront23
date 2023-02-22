@@ -17,9 +17,9 @@ const FormSearch = () => {
     const dispatch = useDispatch();
 
 
-    const searchMovie = async (query) => {
+    const searchMovie = (query) => {
         dispatch(filmActions.setSelectedQuery(query))
-        await navigate('search')
+        navigate('search')
         reset()
     };
 

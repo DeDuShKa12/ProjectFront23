@@ -14,7 +14,7 @@ const Film = ({film}) => {
 
     return (
         <div className={css.filmBox} onClick={()=>navigate(id.toString())}>
-                <img className={css.imgPoster} src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title}/>
+                <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title}/>
 
             <div className={css.infoBox}>
                 <h4>{title}</h4>
